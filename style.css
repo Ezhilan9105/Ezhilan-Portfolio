@@ -1,0 +1,811 @@
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+ROOT VARIABLES
+=========================== */
+:root {
+    --bg-color: #0b0f17;
+    --bg-secondary: #111827;
+    --card-bg: rgba(255, 255, 255, 0.05);
+
+    --text-color: #ffffff;
+    --text-light: #b7c0d1;
+
+    --primary: #ff7a18;
+    --primary-light: #ff9f4a;
+
+    --blue-glow: #4ea8ff;
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, .4);
+
+    --radius: 24px;
+
+    --transition: .35s ease;
+}
+
+/* ===========================
+RESET
+=========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    overflow-x: hidden;
+    line-height: 1.7;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.section {
+    padding: 10rem 0;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+/* ===========================
+BACKGROUND EFFECTS
+=========================== */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255, 122, 24, .15), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(78, 168, 255, .15), transparent 30%);
+    z-index: -2;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    backdrop-filter: blur(2px);
+    z-index: -1;
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 15, .5);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    font-size: 1.5rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.resume-btn {
+    padding: 1rem 2rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--primary-light));
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.resume-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(255, 122, 24, .35);
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu-btn i {
+    color: #fff;
+}
+
+.nav-btns {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+}
+
+/* ===========================
+HERO SECTION
+=========================== */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8rem;
+    align-items: center;
+}
+
+.availability {
+    display: inline-block;
+    padding: .8rem 1.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 122, 24, .3);
+    background: rgba(255, 122, 24, .08);
+    color: var(--primary);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 8rem;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.hero-role {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+.hero-description {
+    margin-top: 2.5rem;
+    color: var(--text-light);
+    font-size: 1.7rem;
+    max-width: 60rem;
+}
+
+.hero-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.hero-skills span {
+    padding: .8rem 1.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .05);
+    border: 1px solid var(--border);
+    font-size: 1.3rem;
+}
+
+.hero-buttons {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 1.4rem 2.8rem;
+    border-radius: 999px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.primary-btn {
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--primary-light));
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, .05);
+}
+
+
+/* ===========================
+HERO IMAGE
+=========================== */
+
+.hero-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 48rem;
+    border-radius: 3rem;
+    position: relative;
+    z-index: 2;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-glow {
+    position: absolute;
+    width: 42rem;
+    height: 42rem;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle,
+            rgba(255, 122, 24, .35),
+            transparent 70%);
+    filter: blur(70px);
+    z-index: 1;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+/* ===========================
+SECTION HEADINGS
+=========================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-heading span {
+    color: var(--primary);
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 4rem;
+    margin-top: 1rem;
+}
+
+/* ===========================
+ABOUT
+=========================== */
+
+.about-content {
+    max-width: 90rem;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+
+/* ===========================
+SKILLS
+=========================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.skill-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius);
+    padding: 3rem;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 122, 24, .4);
+}
+
+.skill-card h3 {
+    font-size: 2rem;
+}
+
+@media(max-width:992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:576px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===========================
+TIMELINE
+=========================== */
+
+.timeline {
+    display: grid;
+    gap: 2rem;
+}
+
+.timeline-item {
+    padding: 3rem;
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+}
+
+.timeline-item span {
+    color: var(--primary);
+}
+
+.journey-block {
+    margin-bottom: 6rem;
+}
+
+.block-title {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    text-align: left;
+}
+
+/* reuse same card style */
+.journey-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(20px);
+    transition: var(--transition);
+}
+
+.journey-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 122, 24, 0.4);
+}
+
+.journey-card h4 {
+    font-size: 1.8rem;
+    margin-bottom: .5rem;
+}
+
+.journey-card p {
+    color: var(--text-light);
+    font-size: 1.5rem;
+}
+
+.journey-card small {
+    color: var(--primary-light);
+    font-size: 1.2rem;
+}
+
+.journey-card ul {
+    padding-left: 1.5rem;
+}
+
+.journey-card ul li {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+/* timeline already exists in your CSS → keep it as it is */
+/* ===========================
+PROJECTS
+=========================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(340px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    overflow: hidden;
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-12px);
+}
+
+.project-card img {
+    height: 230px;
+    object-fit: cover;
+}
+
+.project-content {
+    padding: 2.5rem;
+}
+
+.project-content h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.project-content p {
+    color: var(--text-light);
+    font-size: 1.5rem;
+}
+
+.project-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.project-status {
+    padding: 1rem 1.8rem;
+    border-radius: 999px;
+
+    background: rgba(255, 122, 24, .08);
+    border: 1px solid rgba(255, 122, 24, .25);
+
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.project-buttons a {
+    padding: 1rem 1.8rem;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid var(--border);
+
+    color: var(--text-color);
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    transition: var(--transition);
+}
+
+.project-buttons a:hover {
+    background: linear-gradient(135deg,
+            var(--primary),
+            var(--primary-light));
+
+    border-color: transparent;
+
+    transform: translateY(-3px);
+}
+
+/* ===========================
+CONTACT
+=========================== */
+
+.contact-content {
+    text-align: center;
+}
+
+.contact-content p {
+    font-size: 1.8rem;
+    color: var(--text-light);
+}
+
+.contact-links {
+    margin-top: 4rem;
+
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 2rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    padding: 2rem;
+
+    background: var(--card-bg);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    backdrop-filter: blur(20px);
+
+    transition: var(--transition);
+}
+
+.contact-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(255, 122, 24, .4);
+
+    box-shadow:
+        0 10px 25px rgba(255, 122, 24, .15);
+}
+
+.contact-card span {
+    font-size: 3rem;
+}
+
+.contact-card h4 {
+    font-size: 1.8rem;
+    margin-bottom: .3rem;
+}
+
+.contact-card small {
+    color: var(--text-light);
+    font-size: 1.3rem;
+}
+
+.contact-card i {
+    color: #ffffff;
+    font-size: 2.8rem;
+    transition: var(--transition);
+}
+
+.contact-card:hover i {
+    color: var(--primary);
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+.footer {
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+
+    /* ================= HERO LAYOUT ================= */
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 5rem;
+    }
+
+    /* Move image above content */
+    .hero-image {
+        order: -1;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* ================= IMAGE CONTROL ================= */
+
+    .hero-image img {
+        max-width: 32rem;
+        width: 80%;
+        height: auto;
+    }
+
+    .hero-glow {
+        width: 30rem;
+        height: 30rem;
+    }
+
+    /* ================= TEXT SCALING ================= */
+
+    .hero-title {
+        font-size: 6rem;
+        line-height: 1.1;
+    }
+
+    .hero-role {
+        font-size: 2.6rem;
+    }
+
+    .hero-description {
+        font-size: 1.6rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* ================= CENTER ELEMENTS ================= */
+
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+    }
+
+    .hero-skills {
+        justify-content: center;
+    }
+
+    /* ================= SPACING FIX ================= */
+
+    .hero-content {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width:768px) {
+
+    html {
+        font-size: 55%;
+    }
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+        position: relative;
+        padding: 0 1.5rem;
+        min-height: 7rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    /* ================= PREMIUM NAV DROPDOWN ================= */
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        margin: 0 auto;
+        width: 92%;
+
+        background: rgba(17, 24, 39, 0.75);
+        backdrop-filter: blur(18px);
+
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 1.8rem;
+
+        padding: 2.5rem 0;
+
+        /* hidden state */
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+        pointer-events: none;
+
+        transition: all 0.35s ease;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    /* ================= MENU ITEMS STYLE ================= */
+
+    .nav-links a {
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: var(--text-light);
+
+        padding: 0.8rem 2rem;
+        border-radius: 10px;
+
+        transition: all 0.25s ease;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255, 122, 24, 0.12);
+        color: var(--primary);
+        transform: translateX(6px);
+    }
+
+    /* ================= BUTTONS ================= */
+
+    .nav-btns {
+        gap: 1rem;
+        flex-shrink: 0;
+    }
+
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    /* ================= TEXT ================= */
+
+    .hero-title {
+        font-size: 5rem;
+    }
+
+    .section-heading h2 {
+        font-size: 3rem;
+    }
+
+    .resume-btn {
+        padding: .8rem 1.5rem;
+        font-size: 1.2rem;
+    }
+}
