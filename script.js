@@ -123,7 +123,7 @@ if (roleElement) {
 
             index++;
 
-            setTimeout(typeWriter, 100);
+            setTimeout(typeWriter, 70);
         }
     }
 
